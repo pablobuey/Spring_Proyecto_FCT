@@ -23,13 +23,13 @@ public class IncidenciaController {
         return incidenciaDao.getIncidencias();
     }
 
-    @RequestMapping(value = "api/incidencias/{id}", method = RequestMethod.GET)
+   /* @RequestMapping(value = "api/incidencias/{id}", method = RequestMethod.GET)
     public Incidencia obtenerIncidenciaPorId(@RequestHeader(value = "Authorization") String token, @PathVariable Long id) {
         if (!validarToken(token)) {
             return null;
         }
         return incidenciaDao.obtenerIncidenciaPorId(id);
-    }
+    }*/
 
     @RequestMapping(value = "api/incidencias", method = RequestMethod.POST)
     public void registrarIncidencia(@RequestHeader(value = "Authorization") String token, @RequestBody Incidencia incidencia) {
