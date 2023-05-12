@@ -2,7 +2,7 @@
 $(document).ready(function() {
     cargarIncidencias();
     $('#incidencias').DataTable();
-     actualizarEmailDelUsuario();
+     //actualizarEmailDelUsuario();
     });
 
 //no se si esto es suficiente --> no lo es xD
@@ -24,9 +24,11 @@ async function cargarIncidencias() {
     for (let incidencia of incidencias) {
         let botonEliminar = '<a href="#" onclick="eliminarIncidencia(' + incidencia.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
         let botonActualizar = '<a href="#" onclick="actualizarIncidencia(' + incidencia.id + ')" class="btn btn-info btn-circle btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+
         let incidenciaHtml = '<tr><td>' + incidencia.id + '</td><td>' + incidencia.fecha + '</td><td>' + incidencia.descripcion + '</td><td>' + incidencia.estado + '</td><td>' +/* + incidencia.id_empresas +'</td><td>' + */ botonEliminar + ' ' + botonActualizar + '</td></tr>';
         listadoHtml += incidenciaHtml;
         }
+
     document.querySelector('#incidencias tbody').outerHTML = listadoHtml;
 }
 

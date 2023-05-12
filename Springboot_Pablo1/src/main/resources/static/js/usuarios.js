@@ -40,7 +40,7 @@ async function cargarUsuarios(){
         let botonEliminar ='<a href="#" onclick="eliminarUsuario('+ usuario.id +')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
         let botonActualizar = '<a href="#" onclick="actualizarUsuario('+ usuario.id +',\''+ usuario.nombre +'\',\''+ usuario.apellido +'\',\''+ usuario.email +'\')" class="btn btn-info btn-circle btn-sm"><i class="fas fa-pencil-alt"></i></a>';
 
-        //esto lo he metido porque no hay aún campo telefono en el formulario
+        //esto lo he metido porque no hay aún campo telefono en el formulario y así meto un - en el listado
         let telefonoTexto = usuario.telefono == null ? '-' : usuario.telefono;
 
         //inserción de los campos en la tabla

@@ -2,6 +2,7 @@
 $(document).ready(function() {
     cargarEmpresas();
     $('#empresas').DataTable();
+    actualizarEmailDelUsuario();
     });
 
 async function cargarEmpresas() {

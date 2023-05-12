@@ -18,7 +18,7 @@ public class IncidenciaDaoImp implements IncidenciaDao {
     EntityManager entityManager;
     @Override
     public List<Incidencia> getIncidencias() {
-        String query = "FROM Empresa"; //Empresa es el nombre de la clase, no de la tabla, hibernate_
+        String query = "FROM Incidencia"; //Incidencia es el nombre de la clase, no de la tabla, hibernate_
         return entityManager.createQuery(query).getResultList();
 
     }
