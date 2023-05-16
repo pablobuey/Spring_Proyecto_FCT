@@ -9,26 +9,18 @@ async function registrarIncidencia() {
     //lo que hace es esperar el resultado de la llamada, el codigo se detiene ahi hasta obtenerlo
     //para llamar al servidor usamos fetch
     let datos = {};
-    datos.nombre = document.getElementById('txtNombreEmpresa').value;
-    datos.email= document.getElementById('txtEmailEmpresa').value;
-    datos.direccion = document.getElementById('txtDireccionEmpresa').value;
-    datos.localidad = document.getElementById('txtLocalidadEmpresa').value;
-    datos.provincia = document.getElementById('txtProvinciaEmpresa').value;
-    datos.telefono = document.getElementById('txtTelefonoEmpresa').value;
-    datos.cif= document.getElementById('txtCifEmpresa').value;
-    datos.persona_contacto = document.getElementById('txtPersonaContactoEmpresa').value;
-    datos.cp = document.getElementById('txtCPEmpresa').value;
+
+    datos.fecha = '22/2/22';
+    //document.getElementById('txtFechaIncidencia').value;
+    datos.descripcion = 'blablabla';
+    //document.getElementById('txDescripcionIncidencia').value;
+    datos.estado = 'abierta';
+    datos.id_empresa = 8;
+    //esto es nuevo, para poder meter la id de la empresa que registra la incidencia a través del localStorage.
+    //datos.id_empresa = localStorage.empresaId;
 
 
-    datos.password = document.getElementById('txtPasswordEmpresa').value;
-    let repetirPassword = document.getElementById('txtRepetirPasswordEmpresa').value;
-
-    if (repetirPassword != datos.password){
-    alert('La contraseña que has introducido es diferente');
-    return;
-    }
-
-      const request = await fetch('api/empresas', {
+      const request = await fetch('api/incidencias', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -37,8 +29,8 @@ async function registrarIncidencia() {
         body: JSON.stringify(datos)
       });
 
-      alert("La cuenta fue creada con éxito!");
-      window.location.href = 'login.html' //te lleva a login para que te logees después de registrarte
+      alert("La incidencia fue registrada con exito!");
+      window.location.href = 'indexEmpresaLogeada.html' //te lleva a login para que te logees después de registrarte
 
 }
 

@@ -23,8 +23,7 @@ public class Incidencia {
     @Getter @Setter @Column(name = "estado")
     private String estado;
 
-    /*
-    @Getter @Setter @Column(name = "id_empresas")
-    private int id_empresas;
-    */
+    @Getter @Setter @Column(name = "id_empresa")
+    private int id_empresa;
+
 }

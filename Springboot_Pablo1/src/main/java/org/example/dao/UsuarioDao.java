@@ -15,6 +15,7 @@ public interface UsuarioDao {
 
     Usuario obtenerUsuarioPorCredenciales(Usuario usuario);
 
+
     void actualizar(Long id, Usuario usuario);
 
 

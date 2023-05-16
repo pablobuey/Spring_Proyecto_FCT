@@ -1,6 +1,8 @@
 package org.example.controllers;
 
+import org.example.dao.EmpresaDao;
 import org.example.dao.UsuarioDao;
+import org.example.models.Empresa;
 import org.example.models.Usuario;
 import org.example.utils.JWTUtil;
 
@@ -29,6 +31,8 @@ public class AuthController {
 
             return jwtUtil.create(String.valueOf(usuarioLogueado.getId()), usuarioLogueado.getEmail());
         }
+
         return "FAIL";
     }
+
 }

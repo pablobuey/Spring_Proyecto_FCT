@@ -32,10 +32,10 @@ public class IncidenciaController {
     }*/
 
     @RequestMapping(value = "api/incidencias", method = RequestMethod.POST)
-    public void registrarIncidencia(@RequestHeader(value = "Authorization") String token, @RequestBody Incidencia incidencia) {
-        if (!validarToken(token)) {
+    public void registrarIncidencia(/*@RequestHeader(value = "Authorization") String token,*/ @RequestBody Incidencia incidencia) {
+       /* if (!validarToken(token)) {
             return;
-        }
+        }*/
         incidenciaDao.registrar(incidencia);
     }
 

@@ -2,12 +2,12 @@
 $(document).ready(function() {
     cargarIncidencias();
     $('#incidencias').DataTable();
-     //actualizarEmailDelUsuario();
+     actualizarEmailDeEmpresa();
     });
 
 //no se si esto es suficiente --> no lo es xD
-function actualizarEmailDelUsuario(){
-    document.getElementById('txt-email-usuario').outerHTML = localStorage.email;
+function actualizarEmailDeEmpresa(){
+    document.getElementById('txt-email-empresa').outerHTML = localStorage.email;
 }
 
 

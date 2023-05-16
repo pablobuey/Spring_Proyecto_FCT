@@ -19,7 +19,7 @@ public class UsuarioDaoImp implements UsuarioDao {
     @Override
     public List<Usuario> getUsuarios() {
         String query = "FROM Usuario"; //Usuario es el nombre de la clase, no de la tabla, hibernate_
-       return entityManager.createQuery(query).getResultList();
+        return entityManager.createQuery(query).getResultList();
 
     }
 
@@ -40,17 +40,17 @@ public class UsuarioDaoImp implements UsuarioDao {
     @Override
     public Usuario obtenerUsuarioPorCredenciales(Usuario usuario){
         String query = "FROM Usuario WHERE email = :email";
-         List<Usuario> lista = entityManager.createQuery(query)
+        List<Usuario> lista = entityManager.createQuery(query)
                 .setParameter("email", usuario.getEmail())
                 .getResultList();
 
-         if(lista.isEmpty()){
-             return null;
-         }
+        if(lista.isEmpty()){
+            return null;
+        }
 
-         String passwordHashed = lista.get(0).getPassword();
+        String passwordHashed = lista.get(0).getPassword();
 
-         //para comparar la pass con la de la bbdd
+        //para comparar la pass con la de la bbdd
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         if(argon2.verify(passwordHashed, usuario.getPassword())){
 
@@ -59,6 +59,7 @@ public class UsuarioDaoImp implements UsuarioDao {
 
         return null;
     }
+
 
 
 }
