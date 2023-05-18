@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 import org.example.dao.IncidenciaDao;
+
 import org.example.models.Incidencia;
 import org.example.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,24 @@ public class IncidenciaController {
         }
         return incidenciaDao.getIncidencias();
     }
+
+   //voy a intentar hacer un metodo para recoger las incidencias de una empresa con id=x
+
+
+    @RequestMapping(value = "api/incidenciasEmpresa", method = RequestMethod.GET)
+
+    public List<Incidencia> getIncidenciasEmpresa(@RequestHeader(value = "Authorization") String token/*,
+                                                  @RequestParam("idEmpresa") int idEmpresa*/) {
+        if (!validarToken(token)) {
+            return null;
+        }
+        return incidenciaDao.getIncidenciasEmpresa();
+    }
+
+
+
+
+
 
    /* @RequestMapping(value = "api/incidencias/{id}", method = RequestMethod.GET)
     public Incidencia obtenerIncidenciaPorId(@RequestHeader(value = "Authorization") String token, @PathVariable Long id) {

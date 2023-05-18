@@ -10,12 +10,13 @@ async function registrarIncidencia() {
     //para llamar al servidor usamos fetch
     let datos = {};
 
-    datos.fecha = '22/2/22';
-    //document.getElementById('txtFechaIncidencia').value;
-    datos.descripcion = 'blablabla';
-    //document.getElementById('txDescripcionIncidencia').value;
+    //datos.fecha = '22/2/22';
+    datos.fecha = document.getElementById('txtFechaIncidencia').value;
+    //datos.descripcion = 'blablabla';
+    datos.descripcion = document.getElementById('txDescripcionIncidencia').value;
     datos.estado = 'abierta';
     datos.id_empresa = 8;
+
     //esto es nuevo, para poder meter la id de la empresa que registra la incidencia a través del localStorage.
     //datos.id_empresa = localStorage.empresaId;
 

@@ -16,12 +16,27 @@ public class IncidenciaDaoImp implements IncidenciaDao {
 
     @PersistenceContext
     EntityManager entityManager;
+
+
     @Override
     public List<Incidencia> getIncidencias() {
         String query = "FROM Incidencia"; //Incidencia es el nombre de la clase, no de la tabla, hibernate_
         return entityManager.createQuery(query).getResultList();
 
     }
+
+    @Override
+    public List<Incidencia> getIncidenciasEmpresa(/*int idEmpresa*/) {
+
+        String query = "FROM Incidencia WHERE id_empresa = 8";
+        return entityManager.createQuery(query).getResultList();
+
+        //String query = "FROM Incidencia WHERE id_empresa = :idEmpresa";
+
+        //return entityManager.createQuery(query).setParameter("idEmpresa", idEmpresa).getResultList();
+
+    }
+
 
     @Override
     public void eliminar(Long id) {

@@ -9,6 +9,8 @@ public interface IncidenciaDao {
 
     List<Incidencia> getIncidencias();
 
+    List<Incidencia> getIncidenciasEmpresa(/*int idEmpresa*/);
+
 
     void eliminar(Long id);
 
