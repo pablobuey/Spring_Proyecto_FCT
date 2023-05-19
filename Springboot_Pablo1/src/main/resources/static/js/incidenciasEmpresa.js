@@ -11,7 +11,8 @@ $(document).ready(function() {
 
 
 async function cargarIncidencias() {
-    const request = await fetch('api/incidenciasEmpresa', {
+    const idEmpresa = 6;
+    const request = await fetch('api/incidenciasEmpresa?idEmpresa=' + idEmpresa, {
     method: 'GET',
     headers: getHeaders()
     });

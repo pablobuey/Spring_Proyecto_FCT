@@ -26,17 +26,15 @@ public class IncidenciaDaoImp implements IncidenciaDao {
     }
 
     @Override
-    public List<Incidencia> getIncidenciasEmpresa(/*int idEmpresa*/) {
+    public List<Incidencia> getIncidenciasEmpresa(int idEmpresa) {
 
-        String query = "FROM Incidencia WHERE id_empresa = 8";
+        String query = "FROM Incidencia WHERE id_empresa =" + idEmpresa;
         return entityManager.createQuery(query).getResultList();
 
-        //String query = "FROM Incidencia WHERE id_empresa = :idEmpresa";
-
-        //return entityManager.createQuery(query).setParameter("idEmpresa", idEmpresa).getResultList();
-
     }
+//String query = "FROM Incidencia WHERE id_empresa = :idEmpresa";
 
+    //return entityManager.createQuery(query).setParameter("idEmpresa", idEmpresa).getResultList();
 
     @Override
     public void eliminar(Long id) {

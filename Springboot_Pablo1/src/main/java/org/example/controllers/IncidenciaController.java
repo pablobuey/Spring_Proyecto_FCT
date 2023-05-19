@@ -29,12 +29,12 @@ public class IncidenciaController {
 
     @RequestMapping(value = "api/incidenciasEmpresa", method = RequestMethod.GET)
 
-    public List<Incidencia> getIncidenciasEmpresa(@RequestHeader(value = "Authorization") String token/*,
-                                                  @RequestParam("idEmpresa") int idEmpresa*/) {
+    public List<Incidencia> getIncidenciasEmpresa(@RequestHeader(value = "Authorization") String token,
+                                                  @RequestParam int idEmpresa) {
         if (!validarToken(token)) {
             return null;
         }
-        return incidenciaDao.getIncidenciasEmpresa();
+        return incidenciaDao.getIncidenciasEmpresa(idEmpresa);
     }
 
 

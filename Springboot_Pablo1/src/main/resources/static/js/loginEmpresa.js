@@ -26,6 +26,8 @@ function obtenerIdEmpresa() {
     });
 }
 
+
+
 async function iniciarSesion() {
 
     //he copiado de registrar.js y dejo email y password
