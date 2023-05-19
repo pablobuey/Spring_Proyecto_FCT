@@ -11,7 +11,10 @@ $(document).ready(function() {
 
 
 async function cargarIncidencias() {
-    const idEmpresa = 6;
+    //const idEmpresa = 6;
+
+    //este localStorage lo he creado en loginEmpresa.js -> obtenerIdEmpresa_Version2
+    const idEmpresa = parseInt(localStorage.getItem('empresaId'));
     const request = await fetch('api/incidenciasEmpresa?idEmpresa=' + idEmpresa, {
     method: 'GET',
     headers: getHeaders()

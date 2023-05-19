@@ -38,6 +38,12 @@ public class EmpresaDaoImp implements EmpresaDao {
     }
 
     @Override
+    public List<Empresa> getIdEmpresaPorEmail(String Email) {
+        String query = "FROM Empresa WHERE email =" + Email;
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
     public Empresa obtenerEmpresaPorCredenciales(Empresa empresa){
         String query = "FROM Empresa WHERE email = :email";
         List<Empresa> lista = entityManager.createQuery(query)

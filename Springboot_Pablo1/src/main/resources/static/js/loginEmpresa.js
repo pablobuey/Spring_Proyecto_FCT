@@ -26,6 +26,33 @@ function obtenerIdEmpresa() {
     });
 }
 
+async function obtenerIdEmpresa_Version2{
+//Con esta funcion en teoria debería almacenar el id de la empresa en el localStorage para usarlo en incidenciasEmpresa.
+
+    const emailPrueba = localStorage.email;
+    const token = localStorage.token;
+
+      // Realizar la solicitud al endpoint del backend para obtener los datos de la empresa
+      fetch('api/idEmpresaPorEmail?email=' + emailPrueba, {
+        method: 'GET',
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Obtener el ID de la empresa de la respuesta del backend
+          const empresaId = data.id;
+          // Utilizar el ID de la empresa en tu lógica para crear la incidencia en la base de datos
+          localStorage.setItem('idEmpresa', empresaId);
+          localStorage.empresaId = empresaId;
+        })
+        .catch(error => {
+          console.error('Error al obtener los datos de la empresa:', error);
+        });
+}
 
 
 async function iniciarSesion() {
@@ -52,6 +79,9 @@ async function iniciarSesion() {
       if (respuesta != 'FAIL') {
       localStorage.token = respuesta; //para guardar en la parte cliente el login
       localStorage.email = datos.email; // para guardar el email. Datos lo hemos creado arriba
+
+      obtenerIdEmpresa_Version2();
+
       window.location.href = 'indexEmpresaLogeada.html'
       } else {
       alert("Las crecenciales son incorrectas. Por favor intente nuevamente")

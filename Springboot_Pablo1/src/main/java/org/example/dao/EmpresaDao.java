@@ -18,6 +18,8 @@ public interface EmpresaDao {
 
     void actualizar(Long id, Empresa empresa);
 
+    List<Empresa> getIdEmpresaPorEmail(String Email);
+
 
 }
 

@@ -20,6 +20,14 @@ public class EmpresaController {
     @Autowired
     private JWTUtil jwtUtil;
 
+    private boolean validarToken(String token) {
+
+        String empresaId = jwtUtil.getKey(token);
+        return empresaId != null;
+
+    }
+/////LISTAR, REGISTRAR, ELIMINAR Y ACTUALIZAR EMPRESAS
+
     @RequestMapping(value = "api/empresas", method = RequestMethod.GET)
     public List<Empresa> getEmpresas(@RequestHeader(value = "Authorization") String token) {
         //de esta forma guardamos en la variable token el propio token
@@ -31,12 +39,6 @@ public class EmpresaController {
         return empresaDao.getEmpresas();
     }
 
-    private boolean validarToken(String token) {
-
-        String empresaId = jwtUtil.getKey(token);
-        return empresaId != null;
-
-    }
 
     @RequestMapping(value = "api/empresas", method = RequestMethod.POST)
     public void registrarEmpresa(@RequestBody Empresa empresa) {
@@ -58,7 +60,7 @@ public class EmpresaController {
         if (!validarToken(token)) {
             return;
         }
-        empresaDao.eliminar(id);
+        empresaDao.eliminar(id); //esto creo que igual no funciona, porque se llama igual el metodo aqui que en el DAO e igual se confunde? no lo he probado.
     }
 
     @RequestMapping(value = "api/empresas/{id}", method = RequestMethod.PUT)
@@ -71,6 +73,20 @@ public class EmpresaController {
         }
         empresaDao.actualizar(id, empresa);
     }
+
+
+    @RequestMapping(value = "api/idEmpresaPorEmail", method = RequestMethod.GET)
+    public List<Empresa> getIdEmpresaPorEmail(@RequestHeader(value = "Authorization") String token,
+                                              @RequestParam String Email) {
+
+        if (!validarToken(token)) {
+            return null;
+        }
+
+        return empresaDao.getIdEmpresaPorEmail(Email);
+    }
+
+
 
 }
 

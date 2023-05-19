@@ -21,4 +21,6 @@ public interface IncidenciaDao {
     void actualizar(Long id, Incidencia incidencia);
 
 
+
+
 }
