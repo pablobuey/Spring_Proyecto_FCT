@@ -38,7 +38,7 @@ async function registrarEmpresa() {
       });
 
       alert("La cuenta fue creada con éxito!");
-      window.location.href = 'login.html' //te lleva a login para que te logees después de registrarte
+      window.location.href = 'indexEmpresa.html' //te lleva a login para que te logees después de registrarte
 
 }
 

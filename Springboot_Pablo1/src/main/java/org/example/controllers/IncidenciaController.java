@@ -30,11 +30,11 @@ public class IncidenciaController {
     @RequestMapping(value = "api/incidenciasEmpresa", method = RequestMethod.GET)
 
     public List<Incidencia> getIncidenciasEmpresa(@RequestHeader(value = "Authorization") String token,
-                                                  @RequestParam int idEmpresa) {
+                                                  @RequestParam String email) {
         if (!validarToken(token)) {
             return null;
         }
-        return incidenciaDao.getIncidenciasEmpresa(idEmpresa);
+        return incidenciaDao.getIncidenciasEmpresa(email);
     }
 
    /*
@@ -68,6 +68,8 @@ public class IncidenciaController {
         }
         incidenciaDao.actualizar(id, incidencia);
     }
+
+
 
     private boolean validarToken(String token) {
         String usuarioId = jwtUtil.getKey(token);

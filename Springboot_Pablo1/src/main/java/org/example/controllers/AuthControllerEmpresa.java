@@ -27,4 +27,13 @@ public class AuthControllerEmpresa {
     }
 
 
+
+    @RequestMapping(value = "api/obtenerIdEmpresa", method = RequestMethod.POST)
+    public Long obtenerIdEmpresa(@RequestBody Empresa empresa) {
+
+        Empresa empresaLogeada = empresaDao.obtenerEmpresaPorCredenciales(empresa);
+
+            return empresaLogeada.getId();
+
+    }
 }

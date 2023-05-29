@@ -11,11 +11,16 @@ $(document).ready(function() {
 
 
 async function cargarIncidencias() {
-    //const idEmpresa = 6;
+
+
+
+    const idEmpresa = 2;
+    const emailEmpresa = localStorage.email;
 
     //este localStorage lo he creado en loginEmpresa.js -> obtenerIdEmpresa_Version2
-    const idEmpresa = parseInt(localStorage.getItem('empresaId'));
-    const request = await fetch('api/incidenciasEmpresa?idEmpresa=' + idEmpresa, {
+    //const idEmpresa = parseInt(localStorage.getItem('empresaId'));
+
+    const request = await fetch('api/incidenciasEmpresa?email=' + emailEmpresa, {
     method: 'GET',
     headers: getHeaders()
     });
@@ -33,6 +38,7 @@ async function cargarIncidencias() {
 
     document.querySelector('#incidencias tbody').outerHTML = listadoHtml;
 }
+
 
 
 async function eliminarIncidencia(id) {

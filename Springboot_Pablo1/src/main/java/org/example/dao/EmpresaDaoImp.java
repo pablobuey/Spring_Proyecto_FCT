@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -38,9 +40,16 @@ public class EmpresaDaoImp implements EmpresaDao {
     }
 
     @Override
-    public List<Empresa> getIdEmpresaPorEmail(String Email) {
-        String query = "FROM Empresa WHERE email =" + Email;
-        return entityManager.createQuery(query).getResultList();
+    public Integer getIdEmpresaPorEmail(String email) {
+        String query = "SELECT id FROM Empresa WHERE email = nuevaempresa@g.es";
+        TypedQuery<Integer> typedQuery = entityManager.createQuery(query, Integer.class);
+        //typedQuery.setParameter("email", email);
+
+        try {
+            return typedQuery.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override

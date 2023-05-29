@@ -19,14 +19,16 @@ function obtenerIdEmpresa() {
       // Obtener el ID de la empresa de la respuesta del backend
       const empresaId = data.id;
       // Utilizar el ID de la empresa en tu lógica para crear la incidencia en la base de datos
-      localStorage.empresaId = empresaId;
+
+      //localStorage.empresaId = empresaId;
+      localStorage.empresaId = empresaId.toString();
     })
     .catch(error => {
       console.error('Error al obtener los datos de la empresa:', error);
     });
 }
 
-async function obtenerIdEmpresa_Version2{
+async function obtenerIdEmpresa_Version2(){
 //Con esta funcion en teoria debería almacenar el id de la empresa en el localStorage para usarlo en incidenciasEmpresa.
 
     const emailPrueba = localStorage.email;
@@ -46,8 +48,9 @@ async function obtenerIdEmpresa_Version2{
           // Obtener el ID de la empresa de la respuesta del backend
           const empresaId = data.id;
           // Utilizar el ID de la empresa en tu lógica para crear la incidencia en la base de datos
-          localStorage.setItem('idEmpresa', empresaId);
-          localStorage.empresaId = empresaId;
+          localStorage.setItem('empresaId', empresaId);
+          //localStorage.empresaId = empresaId;
+           localStorage.empresaId = empresaId.toString();
         })
         .catch(error => {
           console.error('Error al obtener los datos de la empresa:', error);
@@ -62,9 +65,12 @@ async function iniciarSesion() {
     datos.email = document.getElementById('txtEmail').value;
     datos.password = document.getElementById('txtPassword').value;
 
+//ESTO LO HE HECHO PARA PODER USARLO EN EL LISTADO DE INCIDENCIAS
+localStorage.setItem('storageEmail', document.getElementById('txtEmail').value);
+localStorage.setItem('storagePassword', document.getElementById('txtPassword').value);
 
     //realizar la solicitud al endpoint del login
-      const request = await fetch('api/loginEmpresa', {
+      const request = await fetch('api/loginEmpresa', { //AuthControllerEmpresa
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -80,7 +86,7 @@ async function iniciarSesion() {
       localStorage.token = respuesta; //para guardar en la parte cliente el login
       localStorage.email = datos.email; // para guardar el email. Datos lo hemos creado arriba
 
-      obtenerIdEmpresa_Version2();
+      //obtenerIdEmpresa_Version2();
 
       window.location.href = 'indexEmpresaLogeada.html'
       } else {

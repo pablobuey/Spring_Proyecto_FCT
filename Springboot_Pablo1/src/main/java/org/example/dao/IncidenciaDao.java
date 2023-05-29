@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface IncidenciaDao {
 
+
+
     List<Incidencia> getIncidencias();
 
-    List<Incidencia> getIncidenciasEmpresa(int idEmpresa);
+    List<Incidencia> getIncidenciasEmpresa(String email);
 
 
     void eliminar(Long id);

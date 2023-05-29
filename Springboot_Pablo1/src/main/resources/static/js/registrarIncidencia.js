@@ -16,6 +16,9 @@ async function registrarIncidencia() {
     datos.descripcion = document.getElementById('txDescripcionIncidencia').value;
     datos.estado = 'abierta';
     datos.id_empresa = 8;
+    let email = "emailemail";
+    datos.empresaemail = localStorage.email;
+    console.log(datos);
 
     //esto es nuevo, para poder meter la id de la empresa que registra la incidencia a través del localStorage.
     //datos.id_empresa = localStorage.empresaId;

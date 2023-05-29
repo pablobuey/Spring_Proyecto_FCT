@@ -26,4 +26,7 @@ public class Incidencia {
     @Getter @Setter @Column(name = "id_empresa")
     private int id_empresa;
 
+    @Getter @Setter @Column(name = "empresaemail")
+    private String empresaemail;
+
 }

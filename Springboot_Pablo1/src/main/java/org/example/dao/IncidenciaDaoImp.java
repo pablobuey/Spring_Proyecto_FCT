@@ -1,7 +1,5 @@
 package org.example.dao;
 
-import de.mkammerer.argon2.Argon2;
-import de.mkammerer.argon2.Argon2Factory;
 import org.example.models.Incidencia;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +16,8 @@ public class IncidenciaDaoImp implements IncidenciaDao {
     EntityManager entityManager;
 
 
+
+
     @Override
     public List<Incidencia> getIncidencias() {
         String query = "FROM Incidencia"; //Incidencia es el nombre de la clase, no de la tabla, hibernate_
@@ -25,10 +25,11 @@ public class IncidenciaDaoImp implements IncidenciaDao {
 
     }
 
-    @Override
-    public List<Incidencia> getIncidenciasEmpresa(int idEmpresa) {
 
-        String query = "FROM Incidencia WHERE id_empresa =" + idEmpresa;
+    @Override
+    public List<Incidencia> getIncidenciasEmpresa(String email) {
+
+        String query = "FROM Incidencia WHERE empresaemail ='" + email + "'";
         return entityManager.createQuery(query).getResultList();
 
     }
