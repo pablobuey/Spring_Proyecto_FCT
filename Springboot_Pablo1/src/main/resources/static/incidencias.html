@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexObsoleto.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexUsuario.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -58,22 +58,6 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Incidencias</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="login.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Login</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="registrar.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Registrar Usuario</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="registrarEmpresa.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Registrar Empresa</span></a>
-            </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -112,7 +96,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id ="txt-email-empresa">...</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id ="txt-email-usuario">...</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -217,7 +201,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="index.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -239,6 +223,13 @@
 
     <!-- Page level custom scripts -->
     <script src="js/incidencias.js"></script>
+    <script>
+    // Obtener el elemento span por su id
+    var spanEmail = document.getElementById('txt-email-usuario');
+
+    // Asignar el valor de localStorage.email al contenido del span
+    spanEmail.innerText = localStorage.email;
+  </script>
 
 </body>
 

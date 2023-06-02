@@ -27,7 +27,7 @@ async function iniciarSesion() {
       if (respuesta != 'FAIL') {
       localStorage.token = respuesta; //para guardar en la parte cliente el login
       localStorage.email = datos.email; // para guardar el email. Datos lo hemos creado arriba
-      window.location.href = 'usuarios.html'
+      window.location.href = 'indexUsuario.html'
       } else {
       alert("Las crecenciales son incorrectas. Por favor intente nuevamente")
       }
