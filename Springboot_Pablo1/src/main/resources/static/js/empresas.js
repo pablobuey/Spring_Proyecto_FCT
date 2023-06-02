@@ -20,7 +20,7 @@ async function cargarEmpresas() {
 
         let telefonoTexto = empresa.telefono == null ? '-' : empresa.telefono;
 
-        let empresaHtml = '<tr><td>' + empresa.id + '</td><td>' + empresa.nombre + '</td><td>' + empresa.direccion + '</td><td>' + empresa.cp + '</td><td>' + empresa.localidad + '</td><td>' + empresa.provincia + '</td><td>' + empresa.cif + '</td><td>' + empresa.email + '</td><td>' + telefonoTexto + '</td><td>' + empresa.personaContacto + '</td><td>' + botonEliminar + ' ' + botonActualizar + '</td></tr>';
+        let empresaHtml = '<tr><td>' + empresa.id + '</td><td>' + empresa.nombre + '</td><td>' + empresa.direccion + '</td><td>' + empresa.cp + '</td><td>' + empresa.localidad + '</td><td>' + empresa.provincia + '</td><td>' + empresa.cif + '</td><td>' + empresa.email + '</td><td>' + telefonoTexto + '</td><td>' + empresa.persona_contacto + '</td><td>' + botonEliminar + ' ' + botonActualizar + '</td></tr>';
         listadoHtml += empresaHtml;
         }
     document.querySelector('#empresas tbody').outerHTML = listadoHtml;
@@ -36,7 +36,7 @@ async function eliminarEmpresa(id) {
 }
 
 function actualizarEmpresa(id) {
-    window.location.href = "actualizar.html?id=" + id;
+    window.location.href = "actualizarEmpresa.html?id=" + id;
 }
 
 function getHeaders() {
