@@ -31,45 +31,51 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Actualizar información</h1>
                         </div>
+
                         <form class="user" id="update-form">
+
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="txtId" name="txtId"
                                        placeholder="" readonly>
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="txtNombre"
-                                           name="txtNombre">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="txtApellido"
-                                           name="apellido" placeholder="Apellido">
+                                <div class="col-sm-12 mb-10 mb-sm-0">
+                                        <textarea class="form-control form-control-user" id="txDescripcionIncidencia"
+                                                  placeholder="Introduce incidencia"> </textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="txtEmail"
-                                       name="email" placeholder="Email">
-                            </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user"
-                                           id="txtPassword" name="password" placeholder="Introduce nuevo Password">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user"
-                                           id="txtRepetirPassword" name="repetir_password"
-                                           placeholder="Repetir nuevo Password">
+                                    <input type="text" class="form-control form-control-user" id="txtFechaIncidencia"
+                                           placeholder="Fecha MM/DD/AA">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user btn-block" onclick="">
-                                Actualizar
-                            </button>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="txtEstadoIncidencia"
+                                           placeholder="Estado de incidencia">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="txtEmpresaEmailIncidencia"
+                                           placeholder="Email de empresa">
+                                </div>
+                            </div>
+
+                            <a onclick="actualizarIncidencia()" href="#" class="btn btn-primary btn-user btn-block">
+                                Actualizar incidencia
+                            </a>
                             <hr>
                         </form>
+
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="usuarios.html">Volver al perfil</a>
+                            <a class="small" href="indexUsuario.html">Volver al perfil</a>
                         </div>
                     </div>
                 </div>
@@ -83,14 +89,15 @@
 <!-- Bootstrap JS -->
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Actualizar JS -->
-<script src="js/actualizar.js"></script>
+<script src="js/actualizarIncidencia.js"></script>
 
-<!--<script src="js/usuarios.js"></script>-->
+<script src="js/incidencias.js"></script>
 
 <!-- Script para actualizar campos del formulario desde la bbdd -->
-<script src="js/dom.js"></script>
+<script src="js/domIncidencia.js"></script>
 
 
 </body>
+
 
 </html>

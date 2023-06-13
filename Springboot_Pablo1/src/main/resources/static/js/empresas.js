@@ -2,7 +2,6 @@
 $(document).ready(function() {
     cargarEmpresas();
     $('#empresas').DataTable();
-    actualizarEmailDelUsuario();
     });
 
 async function cargarEmpresas() {
@@ -16,7 +15,8 @@ async function cargarEmpresas() {
 
     for (let empresa of empresas) {
         let botonEliminar = '<a href="#" onclick="eliminarEmpresa(' + empresa.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
-        let botonActualizar = '<a href="#" onclick="actualizarEmpresa(' + empresa.id + ')" class="btn btn-info btn-circle btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+        let botonActualizar = '<a href="#" onclick="actualizarEmpresa('+ empresa.id + ',\'' + empresa.nombre + '\',\'' + empresa.direccion + '\',\'' + empresa.cp + '\',\'' + empresa.localidad + '\',\'' + empresa.provincia + '\',\'' + empresa.cif + '\',\'' + empresa.email +  '\',\'' + empresa.telefono +  '\',\'' + empresa.persona_contacto+'\')" class="btn btn-info btn-circle btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+
 
         let telefonoTexto = empresa.telefono == null ? '-' : empresa.telefono;
 
@@ -35,9 +35,10 @@ async function eliminarEmpresa(id) {
     location.reload();
 }
 
-function actualizarEmpresa(id) {
-    window.location.href = "actualizarEmpresa.html?id=" + id;
+function actualizarEmpresa(id, nombre, direccion, cp, localidad, provincia, cif, email, telefonoTexto, persona_contacto) {
+    window.location.href = "actualizarEmpresa.html?id=" + id + "&nombre=" + nombre + "&direccion=" + direccion + "&cp=" + cp + "&localidad=" + localidad + "&provincia=" + provincia + "&cif=" + cif + "&email=" + email + "&telefono=" + telefonoTexto + "&persona_contacto=" + persona_contacto;
 }
+
 
 function getHeaders() {
         return {

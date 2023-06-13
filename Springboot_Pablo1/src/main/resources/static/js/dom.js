@@ -1,10 +1,12 @@
       // Obtener el valor del parámetro "id" de la URL
 {
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id');
-      const nombre = urlParams.get('nombre');
-      const apellido = urlParams.get('apellido');
-      const email = urlParams.get('email');
+     const urlParams = new URLSearchParams(window.location.search);
+           const id = urlParams.get('id');
+           const nombre = urlParams.get('nombre');
+           const apellido = urlParams.get('apellido');
+           const email = urlParams.get('email');
+
+
 
       //id
       document.getElementById('txtId').value = id;
@@ -29,8 +31,6 @@
       const txtEmail = document.getElementById('txtEmail');
       txtEmail.value = email;
       txtEmail.placeholder = email;
-
-
 
 
 }
